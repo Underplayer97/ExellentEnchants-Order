@@ -264,11 +264,8 @@ function cheapestItemFromItems2(left_item, right_item) {
 function cheapestItemsFromListN(items, max_subcount) {
     const cheapest_work2item = {};
     const cheapest_prior_works = [];
-    const half = Math.floor(items.length / 2);
-    const min_subcount = Math.max(1, half - 2);
-    const actual_max = Math.min(max_subcount, half);
 
-    for (let subcount = min_subcount; subcount <= actual_max; subcount++) {
+    for (let subcount = 1; subcount <= max_subcount; subcount++) {
         combinations(items, subcount).forEach(left_item => {
             const right_item = items.filter(item_obj => !left_item.includes(item_obj));
 
