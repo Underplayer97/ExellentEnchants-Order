@@ -1,6 +1,6 @@
 let ID_LIST = {};
 let ENCHANTMENT2WEIGHT = [];
-const MAXIMUM_MERGE_LEVELS = 150;
+const MAXIMUM_MERGE_LEVELS = 100;
 let ITEM_NAME;
 let results = {};
 
@@ -175,11 +175,12 @@ function combinations(set, k) {
 
 
 function hashFromItem(item_obj) {
-    const enchants = item_obj.e;
-    const sorted_ids = enchants.sort();
-    const item_namespace = item_obj.i[0];
-    const work = item_obj.w;
-    return [item_namespace, sorted_ids, work];
+    const sorted_ids = [...item_obj.e].sort((a,b) => a-b).join(',');
+    return `${item_obj.i[0]}_${sorted_ids}_${item_obj.w}`;
+}
+
+function memoizeHashFromArguments(args) {
+    return args[0].map(hashFromItem).sort().join('|');
 }
 
 
@@ -195,11 +196,10 @@ function memoizeHashFromArguments(arguments) {
 
 
 const memoizeCheapest = func => {
-
-    return (...arguments) => {
-        const args_key = memoizeHashFromArguments(arguments);
+    return (...args) => {
+        const args_key = memoizeHashFromArguments(args);
         if (!results[args_key]) {
-            results[args_key] = func(...arguments);
+            results[args_key] = func(...args);
         }
         return results[args_key];
     };
