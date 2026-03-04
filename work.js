@@ -264,8 +264,11 @@ function cheapestItemFromItems2(left_item, right_item) {
 function cheapestItemsFromListN(items, max_subcount) {
     const cheapest_work2item = {};
     const cheapest_prior_works = [];
+    const half = Math.floor(items.length / 2);
+    const min_subcount = Math.max(1, half - 2);
+    const actual_max = Math.min(max_subcount, half);
 
-    for (let subcount = 1; subcount <= max_subcount; subcount++) {
+    for (let subcount = min_subcount; subcount <= actual_max; subcount++) {
         combinations(items, subcount).forEach(left_item => {
             const right_item = items.filter(item_obj => !left_item.includes(item_obj));
 
@@ -339,27 +342,30 @@ function cheapestItemsFromDictionaries(work2items) {
 function cheapestItemsFromDictionaries2(left_work2item, right_work2item) {
     let cheapest_work2item = {};
     const cheapest_prior_works = [];
+    let current_best = Infinity;
 
     for (let left_work in left_work2item) {
         const left_item = left_work2item[left_work];
+        if (left_item.x >= current_best) continue;
 
         for (let right_work in right_work2item) {
             const right_item = right_work2item[right_work];
+            if (left_item.x + right_item.x >= current_best) continue;
 
             let new_work2item;
             try {
                 new_work2item = cheapestItemsFromList([left_item, right_item]);
             } catch (error) {
                 const merge_levels_too_expensive = error instanceof MergeLevelsTooExpensiveError;
-                if (!merge_levels_too_expensive) {
-                    throw error;
-                }
+                if (!merge_levels_too_expensive) throw error;
+                continue;
             }
 
             for (let work in new_work2item) {
                 const new_item = new_work2item[work];
-                const prior_work_exists = cheapest_prior_works.includes(work);
+                if (new_item.x < current_best) current_best = new_item.x;
 
+                const prior_work_exists = cheapest_prior_works.includes(work);
                 if (prior_work_exists) {
                     const cheapest_item = cheapest_work2item[work];
                     const new_cheapest_work2item = compareCheapest(cheapest_item, new_item);
