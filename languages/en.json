@@ -139,6 +139,21 @@
         "saturation": "Saturation",
         "speed": "Speed",
         "stomping_force": "Stomping Force",
-        "water_breathing": "Water Breathing"
+        "water_breathing": "Water Breathing",
+        "bomber": "Bomber",
+        "confusing_arrows": "Confusing Arrows",
+        "darkness_arrows": "Darkness Arrows",
+        "dragonfire_arrows": "Dragonfire Arrows",
+        "electrified_arrows": "Electrified Arrows",
+        "ender_bow": "Ender Bow",
+        "explosive_arrows": "Explosive Arrows",
+        "flare": "Flare",
+        "ghast": "Ghast",
+        "hover": "Hover",
+        "lingering": "Lingering",
+        "poisoned_arrows": "Poisoned Arrows",
+        "sniper": "Sniper",
+        "vampiric_arrows": "Vampiric Arrows",
+        "withered_arrows": "Withered Arrows"
     }
 }
