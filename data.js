@@ -402,7 +402,7 @@ var data = {
         electrified_arrows: {
             levelMax: "3",
             weight: "5",
-            incompatible: ["bomer", "ender_bow", "ghast"],
+            incompatible: ["bomber", "ender_bow", "ghast"],
             items: ["bow", "crossbow"]
         },
         ender_bow: {
