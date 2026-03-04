@@ -569,7 +569,17 @@ function updateLevelButtonForOnState(level_button) {
     if (!allow_incompatible) {
         const enchantment_namespace = enchantmentNamespaceFromStylized(enchantment_name);
         const enchantment_metadata = enchantments_metadata[enchantment_namespace];
-        const incompatible_namespaces = enchantment_metadata.incompatible;
+    
+        const incompatible_namespaces = [...enchantment_metadata.incompatible];
+    
+        Object.keys(enchantments_metadata).forEach(other_namespace => {
+            const other_metadata = enchantments_metadata[other_namespace];
+            if (other_metadata.incompatible.includes(enchantment_namespace) && 
+                !incompatible_namespaces.includes(other_namespace)) {
+                incompatible_namespaces.push(other_namespace);
+            }
+        });
+
         filterEnchantmentButtons(incompatible_namespaces);
     }
 }
