@@ -1,6 +1,6 @@
 let ID_LIST = {};
 let ENCHANTMENT2WEIGHT = [];
-const MAXIMUM_MERGE_LEVELS = 39;
+const MAXIMUM_MERGE_LEVELS = 150;
 let ITEM_NAME;
 let results = {};
 
