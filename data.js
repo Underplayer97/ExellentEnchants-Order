@@ -374,6 +374,96 @@ var data = {
             weight: "1",
             incompatible: [],
             items: ["helmet"]
+        },
+        bomber: {
+            levelMax: "3",
+            weight: "1",
+            incompatible: ["ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        confusing_arrows: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        darkness_arrows: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        dragonfire_arrows: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        electrified_arrows: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: ["bomer", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        ender_bow: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: ["bomber", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        explosive_arrows: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        flare: {
+            levelMax: "1",
+            weight: "5",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        ghast: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: ["bomber", "ender_bow"],
+            items: ["bow", "crossbow"]
+        },
+        hover: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        lingering: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        poisoned_arrows: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        sniper: {
+            levelMax: "2",
+            weight: "10",
+            incompatible: [],
+            items: ["bow", "crossbow"]
+        },
+        vampiric_arrows: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
+        },
+        withered_arrows: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: ["bomber", "ender_bow", "ghast"],
+            items: ["bow", "crossbow"]
         }
     },
     items: [
