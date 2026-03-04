@@ -266,6 +266,114 @@ var data = {
             weight: "2",
             incompatible: [],
             items: ["mace"]
+        },
+        cold_steel: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        darkness_cloak: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        dragon_heart: {
+            levelMax: "5",
+            weight: "2",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        elemental_protection: {
+            levelMax: "4",
+            weight: "10",
+            incompatible: [],
+            items: ["helmet", "chestplate", "leggings", "boots"]
+        },
+        fire_shield: {
+            levelMax: "4",
+            weight: "2",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        flame_walker: {
+            levelMax: "2",
+            weight: "1",
+            incompatible: ["frost_walker"],
+            items: ["boots"]
+        },
+        hardened: {
+            levelMax: "2",
+            weight: "5",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        ice_shield: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        jumping: {
+            levelMax: "2",
+            weight: "2",
+            incompatible: [],
+            items: ["boots"]
+        },
+        kamikadze: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        lightweight: {
+            levelMax: "1",
+            weight: "10",
+            incompatible: [],
+            items: ["boots"]
+        },
+        night_vision: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["helmet"]
+        },
+        rebound: {
+            levelMax: "1",
+            weight: "2",
+            incompatible: ["feather_falling"],
+            items: ["boots"]
+        },
+        regrowth: {
+            levelMax: "4",
+            weight: "2",
+            incompatible: [],
+            items: ["chestplate", "elytra"]
+        },
+        saturation: {
+            levelMax: "2",
+            weight: "2",
+            incompatible: [],
+            items: ["helmet"]
+        },
+        speed: {
+            levelMax: "2",
+            weight: "2",
+            incompatible: [],
+            items: ["helmet"]
+        },
+        stomping_force: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["leggings"]
+        },
+        water_breathing: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["helmet"]
         }
     },
     items: [
