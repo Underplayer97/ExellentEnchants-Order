@@ -66,8 +66,7 @@ function process(item, enchants, mode = 'levels') {
 
     let cheapest_cost = Infinity;
     let cheapest_key;
-    for (const key in cheapest_items) {
-        const item = cheapest_items[key];
+    for (const [key, item] of cheapest_items) {
         let item_cost;
 
         if (mode === 'levels') {
@@ -80,7 +79,7 @@ function process(item, enchants, mode = 'levels') {
             cheapest_key = key;
         }
     }
-    const cheapest_item = cheapest_items[cheapest_key]
+    const cheapest_item = cheapest_items.get(cheapest_key);
 
     let instructions = getInstructions(cheapest_item.c);
 
