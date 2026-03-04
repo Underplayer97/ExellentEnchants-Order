@@ -207,22 +207,18 @@ const memoizeCheapest = func => {
 
 
 const cheapestItemsFromList = memoizeCheapest(items => {
-    let work2item = {};
+    let work2item = new Map();
     const item_count = items.length;
 
     switch (item_count) {
         case 1: {
             const item = items[0];
-            const work = item.w;
-            work2item[work] = item;
+            work2item.set(item.w, item);
             return work2item;
         }
         case 2: {
-            const left_item = items[0],
-                right_item = items[1];
-            const cheapest_item = cheapestItemFromItems2(left_item, right_item);
-            const cheapest_work = cheapest_item.w;
-            work2item[cheapest_work] = cheapest_item;
+            const cheapest_item = cheapestItemFromItems2(items[0], items[1]);
+            work2item.set(cheapest_item.w, cheapest_item);
             return work2item;
         }
         default: {
@@ -262,8 +258,7 @@ function cheapestItemFromItems2(left_item, right_item) {
 
 
 function cheapestItemsFromListN(items, max_subcount) {
-    const cheapest_work2item = {};
-    const cheapest_prior_works = [];
+    const cheapest_work2item = new Map();
 
     for (let subcount = 1; subcount <= max_subcount; subcount++) {
         combinations(items, subcount).forEach(left_item => {
@@ -273,17 +268,13 @@ function cheapestItemsFromListN(items, max_subcount) {
             const right_work2item = cheapestItemsFromList(right_item);
             const new_work2item = cheapestItemsFromDictionaries([left_work2item, right_work2item]);
 
-            for (let work in new_work2item) {
-                const new_item = new_work2item[work];
-                const prior_work_exists = cheapest_prior_works.includes(work);
-
-                if (prior_work_exists) {
-                    const cheapest_item = cheapest_work2item[work];
-                    const new_cheapest_work2item = compareCheapest(cheapest_item, new_item);
-                    cheapest_work2item[work] = new_cheapest_work2item[work];
+            for (let [work, new_item] of new_work2item) {
+                if (cheapest_work2item.has(work)) {
+                    const cheapest_item = cheapest_work2item.get(work);
+                    const new_cheapest = compareCheapest(cheapest_item, new_item);
+                    cheapest_work2item.set(work, new_cheapest.get(work) ?? new_cheapest.values().next().value);
                 } else {
-                    cheapest_work2item[work] = new_item;
-                    cheapest_prior_works.push(work);
+                    cheapest_work2item.set(work, new_item);
                 }
             }
         });
@@ -291,32 +282,22 @@ function cheapestItemsFromListN(items, max_subcount) {
     return cheapest_work2item;
 }
 
-
 function compareCheapest(item1, item2) {
-    let work2item = {};
+    let work2item = new Map();
 
-    const work1 = item1.w
-    const work2 = item2.w
+    const work1 = item1.w;
+    const work2 = item2.w;
 
     if (work1 === work2) {
-        const value1 = item1.l,
-            value2 = item2.l;
+        const value1 = item1.l, value2 = item2.l;
         if (value1 === value2) {
-            const min_xp_cost1 = item1.x,
-                min_xp_cost2 = item2.x;
-            if (min_xp_cost1 <= min_xp_cost2) {
-                work2item[work1] = item1;
-            } else {
-                work2item[work2] = item2;
-            }
-        } else if (value1 < value2) {
-            work2item[work1] = item1;
+            work2item.set(work1, item1.x <= item2.x ? item1 : item2);
         } else {
-            work2item[work2] = item2;
+            work2item.set(work1, value1 < value2 ? item1 : item2);
         }
     } else {
-        work2item[work1] = item1;
-        work2item[work2] = item2;
+        work2item.set(work1, item1);
+        work2item.set(work2, item2);
     }
 
     return work2item;
@@ -324,60 +305,60 @@ function compareCheapest(item1, item2) {
 
 
 function cheapestItemsFromDictionaries(work2items) {
-    const work2item_count = work2items.length;
-    switch (work2item_count) {
-        case 1:
-            return work2items[0];
-        case 2:
-            const left_work2item = work2items[0],
-                right_work2item = work2items[1];
-            return cheapestItemsFromDictionaries2(left_work2item, right_work2item);
+    switch (work2items.length) {
+        case 1: return work2items[0];
+        case 2: return cheapestItemsFromDictionaries2(work2items[0], work2items[1]);
     }
 }
 
-
 function cheapestItemsFromDictionaries2(left_work2item, right_work2item) {
-    let cheapest_work2item = {};
-    const cheapest_prior_works = [];
+    let cheapest_work2item = new Map();
     let current_best = Infinity;
 
-    for (let left_work in left_work2item) {
-        const left_item = left_work2item[left_work];
+    for (let [left_work, left_item] of left_work2item) {
         if (left_item.x >= current_best) continue;
 
-        for (let right_work in right_work2item) {
-            const right_item = right_work2item[right_work];
+        for (let [right_work, right_item] of right_work2item) {
             if (left_item.x + right_item.x >= current_best) continue;
 
             let new_work2item;
             try {
                 new_work2item = cheapestItemsFromList([left_item, right_item]);
             } catch (error) {
-                const merge_levels_too_expensive = error instanceof MergeLevelsTooExpensiveError;
-                if (!merge_levels_too_expensive) throw error;
+                if (!(error instanceof MergeLevelsTooExpensiveError)) throw error;
                 continue;
             }
 
-            for (let work in new_work2item) {
-                const new_item = new_work2item[work];
+            for (let [work, new_item] of new_work2item) {
                 if (new_item.x < current_best) current_best = new_item.x;
 
-                const prior_work_exists = cheapest_prior_works.includes(work);
-                if (prior_work_exists) {
-                    const cheapest_item = cheapest_work2item[work];
-                    const new_cheapest_work2item = compareCheapest(cheapest_item, new_item);
-                    cheapest_work2item[work] = new_cheapest_work2item[work];
+                if (cheapest_work2item.has(work)) {
+                    const cheapest_item = cheapest_work2item.get(work);
+                    const new_cheapest = compareCheapest(cheapest_item, new_item);
+                    cheapest_work2item.set(work, new_cheapest.get(work) ?? new_cheapest.values().next().value);
                 } else {
-                    cheapest_work2item[work] = new_item;
-                    cheapest_prior_works.push(work);
+                    cheapest_work2item.set(work, new_item);
                 }
             }
         }
     }
-    cheapest_work2item = removeExpensiveCandidatesFromDictionary(cheapest_work2item);
+    cheapest_work2item = removeExpensiveCandidatesFromMap(cheapest_work2item);
     return cheapest_work2item;
 }
 
+function removeExpensiveCandidatesFromMap(work2item) {
+    const cheapest_work2item = new Map();
+    let cheapest_value;
+
+    for (let [work, item] of work2item) {
+        const value = item.l;
+        if (!(value >= cheapest_value)) {
+            cheapest_work2item.set(work, item);
+            cheapest_value = value;
+        }
+    }
+    return cheapest_work2item;
+}
 
 class item_obj {
     constructor(name, value = 0, id = []) {
