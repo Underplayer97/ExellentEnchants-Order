@@ -121,6 +121,24 @@
         "vanishing_curse": "Curse of Vanishing",
         "density": "Density",
         "breach": "Breach",
-        "wind_burst": "Wind Burst"
+        "wind_burst": "Wind Burst",
+        "cold_steel": "Cold Steel",
+        "darkness_cloak": "Darkness Cloak",
+        "dragon_heart": "Dragon Heart",
+        "elemental_protection": "Elemental Protection",
+        "fire_shield": "Fire Shield",
+        "flame_walker": "Flame Walker",
+        "hardened": "Hardened",
+        "ice_shield": "Ice Shield",
+        "jumping": "Jumping",
+        "kamikadze": "Kamikadze",
+        "lightweight": "Lightweight",
+        "night_vision": "Night Vision",
+        "rebound": "Rebound",
+        "regrowth": "Regrowth",
+        "saturation": "Saturation",
+        "speed": "Speed",
+        "stomping_force": "Stomping Force",
+        "water_breathing": "Water Breathing"
     }
 }
