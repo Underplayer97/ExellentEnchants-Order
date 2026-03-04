@@ -164,9 +164,14 @@ function buildEnchantList(item_namespace_chosen) {
         if (namespace_already_grouped) return;
 
         const enchantment_metadata = data.enchants[enchantment_namespace];
-        let enchantment_group = [enchantment_namespace, ...enchantment_metadata.incompatible]
-            .filter(filterEnchantmentGroup)
-            .filter((value, index, self) => self.indexOf(value) === index);
+        const direct_incompatibles = enchantment_metadata.incompatible.filter(filterEnchantmentGroup);
+
+        let enchantment_group = [enchantment_namespace];
+        direct_incompatibles.forEach(inc => {
+            if (!enchantments_grouped.includes(inc) && !enchantment_group.includes(inc)) {
+                enchantment_group.push(inc);
+            }
+        });
 
         enchantment_group.sort();
 
