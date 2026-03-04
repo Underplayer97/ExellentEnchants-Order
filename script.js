@@ -163,13 +163,16 @@ function buildEnchantList(item_namespace_chosen) {
         const namespace_already_grouped = enchantments_grouped.includes(enchantment_namespace);
         if (namespace_already_grouped) return;
 
-        let enchantment_group = incompatibleGroupFromNamespace(enchantment_namespace);
-        enchantment_group = enchantment_group.filter(filterEnchantmentGroup);
+        const enchantment_metadata = data.enchants[enchantment_namespace];
+        let enchantment_group = [enchantment_namespace, ...enchantment_metadata.incompatible]
+            .filter(filterEnchantmentGroup)
+            .filter((value, index, self) => self.indexOf(value) === index);
 
-        enchantment_group.forEach(enchantment_namespace => {
-            const enchantment_already_grouped = enchantments_grouped.includes(enchantment_namespace);
-            if (!enchantment_already_grouped) {
-                enchantments_grouped.push(enchantment_namespace);
+        enchantment_group.sort();
+
+        enchantment_group.forEach(en => {
+            if (!enchantments_grouped.includes(en)) {
+                enchantments_grouped.push(en);
             }
         });
 
