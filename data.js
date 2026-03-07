@@ -363,7 +363,7 @@ var data = {
             incompatible: [],
             items: ["helmet"]
         },
-        stomping_force: {
+        stopping_force: {
             levelMax: "3",
             weight: "5",
             incompatible: [],
@@ -464,6 +464,312 @@ var data = {
             weight: "5",
             incompatible: ["bomber", "ender_bow", "ghast"],
             items: ["bow", "crossbow"]
+        },
+        blast_mining: {
+            levelMax: "5",
+            weight: "2",
+            incompatible: ["tunnel", "veinminer"],
+            items: ["pickaxe"]
+        },
+        glass_breaker: {
+            levelMax: "1",
+            weight: "10",
+            incompatible: [],
+            items: ["pickaxe", "axe"]
+        },
+        haste: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["pickaxe", "shovel", "axe", "hoe"]
+        },
+        lucky_miner: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["pickaxe", "shovel", "axe", "hoe"]
+        },
+        replanter: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["hoe"]
+        },
+        silk_chest: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["pickaxe", "axe"]
+        },
+        silk_spawner: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: ["smelter"],
+            items: ["pickaxe"]
+        },
+        smelter: {
+            levelMax: "5",
+            weight: "5",
+            incompatible: ["silk_touch", "silk_spawner"],
+            items: ["pickaxe", "shovel", "axe"]
+        },
+        telekinesis: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["pickaxe", "shovel", "axe", "hoe", "sword"]
+        },
+        treefeller: {
+            levelMax: "1",
+            weight: "2",
+            incompatible: [],
+            items: ["axe"]
+        },
+        tunnel: {
+            levelMax: "3",
+            weight: "1",
+            incompatible: ["veinminer", "blast_mining"],
+            items: ["pickaxe", "shovel"]
+        },
+        veinminer: {
+            levelMax: "3",
+            weight: "1",
+            incompatible: ["tunnel", "blast_mining"],
+            items: ["pickaxe", "shovel", "axe", "hoe"]
+        },
+        auto_reel: {
+            levelMax: "1",
+            weight: "1",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        curse_of_drowned: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        double_catch: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        river_master: {
+            levelMax: "5",
+            weight: "10",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        seasoned_angler: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        survivalist: {
+            levelMax: "1",
+            weight: "2",
+            incompatible: [],
+            items: ["fishing_rod"]
+        },
+        bane_of_netherspawn: {
+            levelMax: "5",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        blindness: {
+            levelMax: "2",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        confusion: {
+            levelMax: "2",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        cure: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        curse_of_death: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        cutter: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        decapitator: {
+            levelMax: "2",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        double_strike: {
+            levelMax: "2",
+            weight: "1",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        exhaust: {
+            levelMax: "4",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        ice_aspect: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        infernus: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: [],
+            items: ["trident"]
+        },
+        nimble: {
+            levelMax: "1",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        paralyze: {
+            levelMax: "5",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        rage: {
+            levelMax: "2",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        rocket: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        swiper: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        temper: {
+            levelMax: "5",
+            weight: "1",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        thrifty: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        thunder: {
+            levelMax: "5",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        vampire: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        venom: {
+            levelMax: "2",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        village_defender: {
+            levelMax: "5",
+            weight: "10",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        wisdom: {
+            levelMax: "5",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        wither: {
+            levelMax: "2",
+            weight: "5",
+            incompatible: [],
+            items: ["sword", "axe", "spear"]
+        },
+        curse_of_breaking: {
+            levelMax: "3",
+            weight: "10",
+            incompatible: ["unbreaking"],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
+        },
+        curse_of_fragility: {
+            levelMax: "1",
+            weight: "10",
+            incompatible: [],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
+        },
+        curse_of_mediocrity: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: [],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
+        },
+        curse_of_misfortune: {
+            levelMax: "3",
+            weight: "5",
+            incompatible: ["fortune", "looting"],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
+        },
+        restore: {
+            levelMax: "3",
+            weight: "2",
+            incompatible: [],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
+        },
+        soulbound: {
+            levelMax: "1",
+            weight: "2",
+            incompatible: ["vanishing_curse"],
+            items: ["helmet", "chestplate", "leggings", "boots", "pickaxe", "shovel", "axe", "sword", "hoe", "brush", "fishing_rod",
+                "bow", "shears", "flint_and_steel", "carrot_on_a_stick", "warped_fungus_on_a_stick", "shield", "elytra", "trident",
+                "turtle_shell", "crossbow", "mace", "spear"
+            ]
         }
     },
     items: [
