@@ -16,7 +16,7 @@ var data = {
             levelMax: "5",
             weight: "1",
             incompatible: ["smite", "sharpness", "density", "breach"],
-            items: ["sword", "axe", "mace", "spear"]
+        items: ["sword", "axe", "mace", "spear"]
         },
         blast_protection: {
             levelMax: "4",
@@ -361,7 +361,7 @@ var data = {
             levelMax: "2",
             weight: "2",
             incompatible: [],
-            items: ["helmet"]
+            items: ["boots"]
         },
         stopping_force: {
             levelMax: "3",
